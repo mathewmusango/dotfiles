@@ -17,3 +17,5 @@ jobs:
     uses: mathewmusango/my-workflows/.github/workflows/checks-shell.yml@f9746fe152f3388a5d96c865158942a73b5560a9
   yaml:
     uses: mathewmusango/my-workflows/.github/workflows/checks-yaml.yml@f9746fe152f3388a5d96c865158942a73b5560a9
+  secrets:
+    uses: mathewmusango/my-workflows/.github/workflows/security-secrets.yml@f9746fe152f3388a5d96c865158942a73b5560a9
