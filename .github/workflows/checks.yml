@@ -12,8 +12,8 @@ permissions:
 
 jobs:
   jsonc:
-    uses: mathewmusango/my-workflows/.github/workflows/checks-jsonc.yml@b5d076b992526405c469346ae33dced92e162504
+    uses: mathewmusango/my-workflows/.github/workflows/checks-jsonc.yml@f9746fe152f3388a5d96c865158942a73b5560a9
   shell:
-    uses: mathewmusango/my-workflows/.github/workflows/checks-shell.yml@b5d076b992526405c469346ae33dced92e162504
+    uses: mathewmusango/my-workflows/.github/workflows/checks-shell.yml@f9746fe152f3388a5d96c865158942a73b5560a9
   yaml:
-    uses: mathewmusango/my-workflows/.github/workflows/checks-yaml.yml@b5d076b992526405c469346ae33dced92e162504
+    uses: mathewmusango/my-workflows/.github/workflows/checks-yaml.yml@f9746fe152f3388a5d96c865158942a73b5560a9
