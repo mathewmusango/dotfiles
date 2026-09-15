@@ -1,7 +1,7 @@
 name: checks
 
 # The check reusables live in the shared workflow library
-# (mathewmusango/myprojects), pinned to the v2 tag.
+# (mathewmusango/myprojects), pinned to the v3 tag.
 on:
   push:
     branches: [main]
@@ -12,8 +12,8 @@ permissions:
 
 jobs:
   jsonc:
-    uses: mathewmusango/myprojects/.github/workflows/checks-jsonc.yml@v2
+    uses: mathewmusango/myprojects/.github/workflows/checks-jsonc.yml@v3
   shell:
-    uses: mathewmusango/myprojects/.github/workflows/checks-shell.yml@v2
+    uses: mathewmusango/myprojects/.github/workflows/checks-shell.yml@v3
   yaml:
-    uses: mathewmusango/myprojects/.github/workflows/checks-yaml.yml@v2
+    uses: mathewmusango/myprojects/.github/workflows/checks-yaml.yml@v3
