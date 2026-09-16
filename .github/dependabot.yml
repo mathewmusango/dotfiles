@@ -1,7 +1,9 @@
 version: 2
 updates:
   # Dependabot can only bump a SHA-pinned action when the pin carries a trailing
-  # "# vN" comment — the shared check reusables are pinned deliberately instead.
+  # version comment. The shared-check pins carry `# v<tag>` (the library's CalVer
+  # tag, e.g. `# v2026.0916.0520`), so they do surface here; an action pinned to a
+  # bare SHA cannot be bumped.
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
