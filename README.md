@@ -10,6 +10,7 @@ dotfiles/
   ├── container/checks/     # podman compose — one service per check
   ├── fastfetch/            # fastfetch designs: 01-minimal, 02-tree
   ├── reflector/            # Arch mirrorlist configs + daily timer override
+  ├── rulesets/             # main.json — a record of the live branch ruleset
   ├── scripts/checks/       # local.sh driver + jsonc.py parser
   ├── yay/                  # AUR helper (install notes)
   ├── zsh(ohmyzsh)/         # .zshrc + .p10k.zsh
@@ -36,6 +37,32 @@ gh repo clone mathewmusango/dotfiles && cd dotfiles
 ```
 
 Then follow the module README you need.
+
+## Checks and pull requests
+
+CI is one workflow, [`checks.yml`](.github/workflows/checks.yml), which calls the
+shared reusables in [`mathewmusango/my-workflows`](https://github.com/mathewmusango/my-workflows)
+pinned to a full commit SHA. It runs on **pushes to `main` and on pull requests**;
+each reusable self-gates, so an untouched surface **skips and reports success** —
+which is what lets a ruleset require them all without blocking unrelated PRs.
+
+`main` is protected by a ruleset, recorded verbatim in
+[`rulesets/main.json`](rulesets/main.json) (the file is a read-out of the live
+ruleset, not its source — apply changes in Settings → Rules):
+
+- **Pull request required** — 1 approving review, stale reviews dismissed on push,
+  review threads must be resolved, squash/rebase merges only.
+- **Required status checks** (strict: the branch must be up to date):
+  `jsonc / jsonc` · `shell / shellcheck` · `yaml / syntax` · `yaml / actionlint` ·
+  `secrets / gitleaks` · `deps / dependency-review`.
+- **Force-push and branch deletion blocked.**
+- **Admin bypass** (`RepositoryRole: admin`, always) — the owner can still push
+  straight to `main`; everything else goes through a PR.
+
+> The check names are the ones GitHub actually reports for a reusable call:
+> `<caller job> / <leaf job>`. Requiring a name no run reports leaves a PR stuck on
+> "Expected — waiting for status to be reported" — verify new ones with
+> `gh api repos/<owner>/<repo>/commits/<sha>/check-runs` before adding them.
 
 ## Security
 
