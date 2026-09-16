@@ -42,9 +42,11 @@ Then follow the module README you need.
 
 CI is one workflow, [`checks.yml`](.github/workflows/checks.yml), which calls the
 shared reusables in [`mathewmusango/my-workflows`](https://github.com/mathewmusango/my-workflows)
-pinned to a full commit SHA. It runs on **pushes to `main` and on pull requests**;
-each reusable self-gates, so an untouched surface **skips and reports success** —
-which is what lets a ruleset require them all without blocking unrelated PRs.
+pinned to a full commit SHA. It runs on **pull requests into `main`** (plus manual
+dispatch) — nothing runs on a push, so a bypass push by the owner is unchecked and
+the PR is the single gate. Each reusable self-gates, so an untouched surface
+**skips and reports success**, which is what lets a ruleset require them all without
+blocking unrelated PRs.
 
 `main` is protected by a ruleset, recorded verbatim in
 [`rulesets/main.json`](rulesets/main.json) (the file is a read-out of the live
