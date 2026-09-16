@@ -27,9 +27,5 @@ jobs:
     uses: mathewmusango/my-workflows/.github/workflows/checks-yaml.yml@60bbf7e773dae68e8a4884698def52a8c63f20cf # v2026.0916.0520
   secrets:
     uses: mathewmusango/my-workflows/.github/workflows/security-secrets.yml@60bbf7e773dae68e8a4884698def52a8c63f20cf # v2026.0916.0520
-
-  # Dependency review needs a comparison, which only a pull request has. The
-  # reusable no-ops on every other event; this gate keeps the push run clean.
   deps:
-    if: github.event_name == 'pull_request'
     uses: mathewmusango/my-workflows/.github/workflows/security-deps.yml@60bbf7e773dae68e8a4884698def52a8c63f20cf # v2026.0916.0520
