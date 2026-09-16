@@ -54,11 +54,10 @@ ruleset, not its source — apply changes in Settings → Rules):
 
 - **Pull request required** — 1 approving review, stale reviews dismissed on push,
   review threads must be resolved, squash/rebase merges only.
-- **Required status checks** (strict: the branch must be up to date):
+- **Required status checks** (strict: the branch must be up to date) — all six:
   `jsonc / jsonc` · `shell / shellcheck` · `yaml / syntax` · `yaml / actionlint` ·
-  `secrets / gitleaks`. The `deps / dependency-review` job exists on every PR but is
-  deliberately **not required yet** — a check name can only be required once a run
-  has actually reported it.
+  `secrets / gitleaks` · `deps / dependency-review`. The `detect` jobs are deliberately
+  *not* required: they are the internal gates and report success on every run.
 - **Force-push and branch deletion blocked.**
 - **Admin bypass** (`RepositoryRole: admin`, always) — the owner can still push
   straight to `main`; everything else goes through a PR.
