@@ -54,15 +54,20 @@ ruleset, not its source — apply changes in Settings → Rules):
   review threads must be resolved, squash/rebase merges only.
 - **Required status checks** (strict: the branch must be up to date):
   `jsonc / jsonc` · `shell / shellcheck` · `yaml / syntax` · `yaml / actionlint` ·
-  `secrets / gitleaks` · `deps / dependency-review`.
+  `secrets / gitleaks`. The `deps / dependency-review` job exists on every PR but is
+  deliberately **not required yet** — a check name can only be required once a run
+  has actually reported it.
 - **Force-push and branch deletion blocked.**
 - **Admin bypass** (`RepositoryRole: admin`, always) — the owner can still push
   straight to `main`; everything else goes through a PR.
 
 > The check names are the ones GitHub actually reports for a reusable call:
-> `<caller job> / <leaf job>`. Requiring a name no run reports leaves a PR stuck on
-> "Expected — waiting for status to be reported" — verify new ones with
-> `gh api repos/<owner>/<repo>/commits/<sha>/check-runs` before adding them.
+> `<caller job> / <leaf job>`. Note the asymmetry for a job gated at the **caller**
+> level: when it skips, GitHub reports the bare caller key — a push run checks in as
+> `deps`, while on a pull request its leaf runs and reports `deps / dependency-review`.
+> Requiring a name no run reports leaves a PR stuck on "Expected — waiting for status
+> to be reported": check with
+> `gh api repos/<owner>/<repo>/commits/<sha>/check-runs` before adding one.
 
 ## Security
 
