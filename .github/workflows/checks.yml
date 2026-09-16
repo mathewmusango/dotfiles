@@ -1,15 +1,5 @@
 name: checks
 
-# The check reusables live in the shared workflow library
-# (mathewmusango/my-workflows), pinned to a commit SHA. The trailing `# vN` names
-# the library tag that SHA is — Dependabot can only version-map a SHA pin when
-# that comment is present.
-#
-# Runs on pull requests into `main` — the gate the ruleset enforces — plus manual
-# dispatch. Nothing runs on a push, so a bypass push straight to `main` is
-# unchecked: the PR is the single gate. The reusables self-gate, so an untouched
-# surface skips and reports success, which is what lets the ruleset require them
-# all without blocking an unrelated PR.
 on:
   pull_request:
     branches: [main]
