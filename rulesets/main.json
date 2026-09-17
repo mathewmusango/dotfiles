@@ -1,6 +1,6 @@
 {
   "id": 23519428,
-  "name": "main",
+  "name": "branch: main",
   "target": "branch",
   "source_type": "Repository",
   "source": "mathewmusango/dotfiles",
