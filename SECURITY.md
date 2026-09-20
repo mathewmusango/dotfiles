@@ -1,7 +1,5 @@
 # Security Policy
 
-## Reporting
+This repository is my machine configuration, installed by copy — it runs no service.
 
-**Do not** open a public issue. Use GitHub's private vulnerability reporting
-(**Security → Report a vulnerability**) or contact the maintainer via their
-GitHub profile. Include what you found, where in the tree, and how to reproduce it.
+If something here should not be public or you find a security issue, use **Security → Report a vulnerability**, or [email](mailto:musangomathew@gmail.com).
