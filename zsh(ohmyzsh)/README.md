@@ -85,6 +85,16 @@ exec zsh
 
 To re-customize the prompt later, run `p10k configure` (interactive wizard) — it rewrites `~/.p10k.zsh`; re-run `install.sh` to restore the repo version.
 
+### SSH agent
+
+`.zshrc` exports `SSH_AUTH_SOCK` for Arch's socket-activated agent (only when unset,
+so it never clobbers another agent) — that is what lets `ssh-add` work. `ssh`/`git`
+reach the agent through `IdentityAgent` regardless.
+
+```sh
+ssh-add ~/.ssh/id_ed25519_<label>   # once per boot — agent keys live in memory
+```
+
 ### Screenshots
 
 [![zsh prompt](screenshot.png)](screenshot.png)
