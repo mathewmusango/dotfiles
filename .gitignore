@@ -12,3 +12,16 @@ Thumbs.db
 *.tmp
 *.log
 *.bak
+
+# Key material — never commit (SSH / GPG)
+id_rsa*
+id_ecdsa*
+id_ed25519*
+*.pem
+*.key
+public-keys.d/
+private-keys-v1.d/
+pubring.db
+pubring.kbx
+trustdb.gpg
+openpgp-revocs.d/

@@ -1,7 +1,8 @@
 # dotfiles
 
 **Personal configs, installed by copy — never by symlink.** Each app is a module:
-config in the repo, an install script that copies it into place, and its own README.
+config in the repo, an install script that copies it into place, and its own README —
+or, where a module only documents a setup, just the README.
 
 ```text
 dotfiles/
@@ -9,9 +10,11 @@ dotfiles/
   ├── .github/              # checks.yml, CODEOWNERS, dependabot
   ├── container/checks/     # podman compose — one service per check
   ├── fastfetch/            # fastfetch designs: 01-minimal, 02-tree
+  ├── gpg/                  # GnuPG agent config: common.conf, gpg-agent.conf
   ├── reflector/            # Arch mirrorlist configs + daily timer override
   ├── rulesets/             # main.json — a record of the live branch ruleset
   ├── scripts/checks/       # local.sh driver + jsonc.py parser
+  ├── ssh/                  # SSH keys, host pinning and agent (docs only)
   ├── yay/                  # AUR helper (install notes)
   ├── zsh(ohmyzsh)/         # .zshrc + .p10k.zsh
   ├── LICENSE
@@ -27,6 +30,8 @@ dotfiles/
 | [`zsh(ohmyzsh)/`](zsh(ohmyzsh)/README.md) | `~/.zshrc`, `~/.p10k.zsh` (overwrites) | `./install.sh` |
 | [`reflector/`](reflector/README.md) | `/etc/xdg/reflector/` + `reflector.timer` override | `sudo ./install.sh` |
 | [`yay/`](yay/README.md) | — install notes only | — |
+| [`ssh/`](ssh/README.md) | — SSH keys, host pinning, agent (nothing installed) | — |
+| [`gpg/`](gpg/README.md) | `~/.gnupg/{common,gpg-agent}.conf` (overwrites) | `./install.sh` |
 
 The `02-tree` design and the p10k prompt need a Nerd Font (MesloLGS NF).
 
@@ -37,38 +42,6 @@ gh repo clone mathewmusango/dotfiles && cd dotfiles
 ```
 
 Then follow the module README you need.
-
-## Checks and pull requests
-
-CI is one workflow, [`checks.yml`](.github/workflows/checks.yml), which calls the
-shared reusables in [`mathewmusango/my-workflows`](https://github.com/mathewmusango/my-workflows)
-pinned to a full commit SHA. It runs on **pull requests into `main`** (plus manual
-dispatch) — nothing runs on a push, so a bypass push by the owner is unchecked and
-the PR is the single gate. Each reusable self-gates, so an untouched surface
-**skips and reports success**, which is what lets a ruleset require them all without
-blocking unrelated PRs.
-
-`main` is protected by a ruleset, recorded verbatim in
-[`rulesets/main.json`](rulesets/main.json) (the file is a read-out of the live
-ruleset, not its source — apply changes in Settings → Rules):
-
-- **Pull request required** — 1 approving review, stale reviews dismissed on push,
-  review threads must be resolved, squash/rebase merges only.
-- **Required status checks** (strict: the branch must be up to date) — all six:
-  `jsonc / jsonc` · `shell / shellcheck` · `yaml / syntax` · `yaml / actionlint` ·
-  `secrets / gitleaks` · `deps / dependency-review`. The `detect` jobs are deliberately
-  *not* required: they are the internal gates and report success on every run.
-- **Force-push and branch deletion blocked.**
-- **Admin bypass** (`RepositoryRole: admin`, always) — the owner can still push
-  straight to `main`; everything else goes through a PR.
-
-> The check names are the ones GitHub actually reports for a reusable call:
-> `<caller job> / <leaf job>`. Keep the gate **inside** the reusable rather than on
-> the caller job: a caller-level `if` makes a skipped job report the bare caller key
-> (`deps`) instead of the stable `deps / dependency-review`, which is a name no
-> ruleset can require sanely. Requiring a name no run reports leaves a PR stuck on
-> "Expected — waiting for status to be reported": check with
-> `gh api repos/<owner>/<repo>/commits/<sha>/check-runs` before adding one.
 
 ## Security
 
