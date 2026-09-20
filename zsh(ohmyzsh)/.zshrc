@@ -38,3 +38,11 @@ source $ZSH/oh-my-zsh.sh
 # export NVM_DIR="$HOME/.nvm"
 # [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 # [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+
+# SSH agent — Arch ships a socket-activated ssh-agent (ssh-agent.socket) whose
+# unit requires SSH_AUTH_SOCK to be exported; without it ssh-add cannot reach
+# the agent. Keys are passphrase-protected, so run ssh-add once per boot.
+# ssh/git also reach the agent via IdentityAgent in ~/.ssh/config.
+if [[ -z "$SSH_AUTH_SOCK" ]]; then
+  export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
+fi
