@@ -1,6 +1,6 @@
 # Reflector
 
-**Auto-updates the [`pacman`](https://archlinux.org/pacman/) mirrorlist daily** — rate-sorted HTTPS mirrors, so [`yay`](../yay/README.md) / `pacman -Syu` stays fast.
+**Auto-updates the mirrorlist daily** — rate-sorted HTTPS mirrors, so updates stay fast.
 
 ## Files
 
@@ -13,7 +13,7 @@
 **1. Install reflector**
 
 ```sh
-sudo pacman -S reflector
+yay -S reflector
 ```
 
 **2. Install configs + enable the daily timer**
@@ -27,3 +27,5 @@ sudo ./reflector/install.sh
 ```sh
 systemctl list-timers reflector.timer
 ```
+
+More: [`Reflector`](https://wiki.archlinux.org/title/Reflector)
