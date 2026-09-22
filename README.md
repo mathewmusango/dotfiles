@@ -43,6 +43,15 @@ dotfiles/
 
 The `02-tree` design and the p10k prompt need a Nerd Font — see [`nerd-font/`](nerd-font/README.md).
 
+## Repository docs
+
+Every module's README is linked in the table above. The rest of the documentation:
+
+| Doc | Covers |
+| --- | --- |
+| [`container/checks/`](container/checks/README.md) | the compose services behind the checks |
+| [`scripts/checks/`](scripts/checks/README.md) | the check driver and the pre-commit hook — run the surfaces, or the same tools locally |
+
 ## Setup
 
 ```sh
