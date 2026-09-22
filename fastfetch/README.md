@@ -2,16 +2,18 @@
 
 **Config designs for [`Fastfetch`](https://github.com/fastfetch-cli/fastfetch)**.
 
-### **1. Install fastfetch + git(prerequisite)** (if not present)
+### **1. Install fastfetch** — plus **git**, a prerequisite (skip either if already present)
 
 ```sh
 # Arch
 yay -S fastfetch git
 # Debian/Ubuntu
-sudo apt install fastfetch
+sudo apt install fastfetch git
 # Fedora
-sudo dnf install fastfetch
+sudo dnf install fastfetch git
 ```
+
+**git** has its own module — see [`git`](../git/README.md).
 
 ### **2.Clone**
 
@@ -20,19 +22,7 @@ gh repo clone mathewmusango/dotfiles
 cd dotfiles/fastfetch
 ```
 
-> **Note — Nerd Font:** the tree design uses Nerd Font icons — install MesloLGS NF and select it in your terminal, or icons render as `□`:
-> ```sh
-> # Arch
-> yay -S ttf-meslo-nerd-font-powerlevel10k
->
-> # Debian/Ubuntu + Fedora (no package — download the TTFs)
-> mkdir -p ~/.local/share/fonts
-> curl -fLo ~/.local/share/fonts/MesloLGS\ NF\ Regular.ttf https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Regular.ttf
-> curl -fLo ~/.local/share/fonts/MesloLGS\ NF\ Bold.ttf https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold.ttf
-> curl -fLo ~/.local/share/fonts/MesloLGS\ NF\ Italic.ttf https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Italic.ttf
-> curl -fLo ~/.local/share/fonts/MesloLGS\ NF\ Bold\ Italic.ttf https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold%20Italic.ttf
-> fc-cache -f ~/.local/share/fonts
-> ```
+> **Note — Nerd Font:** the tree design uses Nerd Font icons, or they render as `□`. Install and select **MesloLGS NF** — see the [`nerd-font`](../nerd-font/README.md) module.
 >
 > **yay** is an AUR helper for Arch — see the [`yay`](../yay/README.md) module.
 
