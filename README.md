@@ -8,6 +8,7 @@ or, where a module only documents a setup, just the README.
 dotfiles/
   ├── .githooks/            # pre-commit hook -> local checks
   ├── .github/              # checks.yml, CODEOWNERS, dependabot
+  ├── aws/                  # AWS CLI v2 via a pinned podman image
   ├── container/checks/     # podman compose — one service per check
   ├── fastfetch/            # fastfetch designs: 01-minimal, 02-tree
   ├── gpg/                  # GnuPG agent config: common.conf, gpg-agent.conf
@@ -32,6 +33,7 @@ dotfiles/
 | [`yay/`](yay/README.md) | — install notes only | — |
 | [`ssh/`](ssh/README.md) | — SSH keys, host pinning, agent (nothing installed) | — |
 | [`gpg/`](gpg/README.md) | `~/.gnupg/{common,gpg-agent}.conf` (overwrites) | `./install.sh` |
+| [`aws/`](aws/README.md) | `~/.local/bin/aws` | `./install.sh` |
 
 The `02-tree` design and the p10k prompt need a Nerd Font (MesloLGS NF).
 
