@@ -1,0 +1,16 @@
+#!/bin/sh
+# aws — AWS CLI v2, run from a pinned container image.
+#
+# Why: the Agent Toolkit for AWS requires AWS CLI >= 2.35, and Arch's "extra"
+# repo lags behind it. Running the official image keeps the required version
+# available without shadowing the distro package with a second host install,
+# and decouples the CLI version from the distro entirely.
+#
+# Defaults to a read-only profile; an explicit `--profile <name>` still wins,
+# and AWS_PROFILE / AWS_REGION already in the environment override the defaults.
+exec podman run --rm -i \
+  --network host \
+  -v "$HOME/.aws:/root/.aws" \
+  -e "AWS_PROFILE=${AWS_PROFILE:-readonly}" \
+  -e "AWS_REGION=${AWS_REGION:-us-east-1}" \
+  docker.io/amazon/aws-cli:2.36.50 "$@"
