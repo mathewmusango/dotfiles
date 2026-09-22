@@ -11,7 +11,7 @@ The [AWS CLI](https://aws.amazon.com/cli/) v2, run from a pinned container image
 
 ## Setup
 
-**1. Prerequisites** — podman, plus a profile in `~/.aws`
+**1. Prerequisites** — [podman](../podman/README.md), plus a profile in `~/.aws`
 
 ```sh
 yay -S podman

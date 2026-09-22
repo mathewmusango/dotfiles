@@ -11,7 +11,10 @@ dotfiles/
   ├── aws/                  # AWS CLI v2 via a pinned podman image
   ├── container/checks/     # podman compose — one service per check
   ├── fastfetch/            # fastfetch designs: 01-minimal, 02-tree
+  ├── git/                  # git itself (install notes)
   ├── gpg/                  # GnuPG agent config: common.conf, gpg-agent.conf
+  ├── nerd-font/            # MesloLGS NF glyph font (install notes)
+  ├── podman/               # rootless containers (install notes)
   ├── reflector/            # Arch mirrorlist configs + daily timer override
   ├── rulesets/             # main.json — a record of the live branch ruleset
   ├── scripts/checks/       # local.sh driver + jsonc.py parser
@@ -27,15 +30,18 @@ dotfiles/
 
 | Module | Installs to | Installer |
 |---|---|---|
-| [`fastfetch/`](fastfetch/README.md) | `~/.config/fastfetch/config.jsonc` | `./replace.sh <design>` |
-| [`zsh(ohmyzsh)/`](zsh(ohmyzsh)/README.md) | `~/.zshrc`, `~/.p10k.zsh` (overwrites) | `./install.sh` |
-| [`reflector/`](reflector/README.md) | `/etc/xdg/reflector/` + `reflector.timer` override | `sudo ./install.sh` |
-| [`yay/`](yay/README.md) | — install notes only | — |
-| [`ssh/`](ssh/README.md) | — SSH keys, host pinning, agent (nothing installed) | — |
-| [`gpg/`](gpg/README.md) | `~/.gnupg/{common,gpg-agent}.conf` (overwrites) | `./install.sh` |
 | [`aws/`](aws/README.md) | `~/.local/bin/aws` | `./install.sh` |
+| [`fastfetch/`](fastfetch/README.md) | `~/.config/fastfetch/config.jsonc` | `./replace.sh <design>` |
+| [`git/`](git/README.md) | — install notes only | — |
+| [`gpg/`](gpg/README.md) | `~/.gnupg/{common,gpg-agent}.conf` (overwrites) | `./install.sh` |
+| [`nerd-font/`](nerd-font/README.md) | — install notes only | — |
+| [`podman/`](podman/README.md) | — install notes only | — |
+| [`reflector/`](reflector/README.md) | `/etc/xdg/reflector/` + `reflector.timer` override | `sudo ./install.sh` |
+| [`ssh/`](ssh/README.md) | — SSH keys, host pinning, agent (nothing installed) | — |
+| [`yay/`](yay/README.md) | — install notes only | — |
+| [`zsh(ohmyzsh)/`](zsh(ohmyzsh)/README.md) | `~/.zshrc`, `~/.p10k.zsh` (overwrites) | `./install.sh` |
 
-The `02-tree` design and the p10k prompt need a Nerd Font (MesloLGS NF).
+The `02-tree` design and the p10k prompt need a Nerd Font — see [`nerd-font/`](nerd-font/README.md).
 
 ## Setup
 

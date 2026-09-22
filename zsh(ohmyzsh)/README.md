@@ -11,6 +11,8 @@
 - history-substring-search
 - syntax-highlighting
 
+The `podman` plugin only adds aliases — install the [`podman`](../podman/README.md) package for it to do anything.
+
 ### Setup
 
 **1. Install zsh, git, curl** (git + curl are prerequisites for the Oh My Zsh installer)
@@ -24,19 +26,7 @@ sudo apt install zsh git curl
 sudo dnf install zsh git curl
 ```
 
-> **Note — Nerd Font:** the p10k prompt needs a Nerd Font (MesloLGS NF) — install it and select it in your terminal, or icons render as `□`. The same font also covers the fastfetch design icons:
-> ```sh
-> # Arch
-> yay -S ttf-meslo-nerd-font-powerlevel10k
->
-> # Debian/Ubuntu + Fedora (no package — download the TTFs)
-> mkdir -p ~/.local/share/fonts
-> curl -fLo ~/.local/share/fonts/MesloLGS\ NF\ Regular.ttf https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Regular.ttf
-> curl -fLo ~/.local/share/fonts/MesloLGS\ NF\ Bold.ttf https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold.ttf
-> curl -fLo ~/.local/share/fonts/MesloLGS\ NF\ Italic.ttf https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Italic.ttf
-> curl -fLo ~/.local/share/fonts/MesloLGS\ NF\ Bold\ Italic.ttf https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold%20Italic.ttf
-> fc-cache -f ~/.local/share/fonts
-> ```
+> **Note — Nerd Font:** the p10k prompt needs a Nerd Font, or its icons render as `□`. Install and select **MesloLGS NF** — see the [`nerd-font`](../nerd-font/README.md) module.
 >
 > **yay** is an AUR helper for Arch — see the [`yay`](../yay/README.md) module.
 
