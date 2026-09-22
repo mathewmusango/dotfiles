@@ -41,6 +41,18 @@ than CI's, so a pass here is not proof that CI will pass:
 | `yaml-actionlint` | `actionlint` |
 | `yaml-syntax` | `ruby -ryaml -e 'YAML.load_file(ARGV[0])' <file>` |
 
+## Pre-commit hook
+
+[`.githooks/pre-commit`](../.githooks/pre-commit) is a five-line shim that execs this driver, so the same checks run before every commit — diff-gated, over the staged changes. Enable it once per clone:
+
+```sh
+git config core.hooksPath .githooks
+```
+
+It runs the checks **through podman**, never with host tools, so a pass here means the same as a pass in CI. Bypass it deliberately with `git commit --no-verify` — CI still runs the full set, so that only defers the failure.
+
+**`.githooks/` must hold only shell scripts.** The `shell` surface matches everything under that directory, so a README or any other non-shell file there makes `shellcheck` fail. That is why the hook has no README of its own and is documented here instead.
+
 ## Files
 
 - `local.sh` — the driver (POSIX sh)
