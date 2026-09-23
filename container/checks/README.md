@@ -27,7 +27,9 @@ podman-compose -f container/checks/compose.yml run --rm shell
 
 - The repo root is mounted at `/repo` **read-only** — no check can modify the tree.
 - Images carry mutable `latest` tags on purpose (they track whatever CI uses); the first run pulls them.
-- Compose interpolates `$VAR` from the host environment at parse time, so a shell variable inside `command:` must be written `$$`. Getting this wrong emptied the loop variables and silently skipped every file.
 - Entrypoints differ per image: `actionlint` runs the tool directly (args only), while the alpine images need an explicit `sh -c`.
 - Scans are extension-wide across the whole repo (`.git` pruned), so new files in new locations are never missed.
 - Needs [podman + podman-compose](../podman/README.md) on the host. The GitHub workflows stay the authoritative gate.
+
+> [!WARNING]
+> Compose interpolates `$VAR` from the host environment at parse time, so a shell variable inside `command:` must be written `$$`. Getting this wrong empties the loop variables and **silently skips every file**.
