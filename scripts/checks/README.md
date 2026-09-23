@@ -34,7 +34,6 @@ It runs through podman, never host tools. Bypass it deliberately with `git commi
 
 > [!NOTE]
 > `.githooks/` holds shell scripts only. The `shell` surface matches everything under that directory, so the hook has no README of its own and is documented here instead.
->
-> > [!WARNING]
-> > A README or any other non-shell file under `.githooks/` makes `shellcheck` fail.
->
+
+> [!WARNING]
+> A README or any other non-shell file under `.githooks/` makes `shellcheck` fail.

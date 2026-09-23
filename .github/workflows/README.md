@@ -4,7 +4,7 @@
 
 - One purpose per file, named for the task — `checks.yml`, `codeql.yml`. A second file for the same kind of job takes `{task}-{language|resource}`.
 - Display names are quoted: an unquoted colon+space is invalid YAML.
-- The ruleset that requires the reported checks is in [`rulesets/`](../../rulesets/README.md); the rest of `.github/` is indexed in [`.github/`](../README.md).
+- The ruleset that requires the reported checks is in [`rulesets/`](../../rulesets/README.md); the rest of `.github/` is indexed in [`.github/`](../INDEX.md).
 
 ## `checks.yml`
 
