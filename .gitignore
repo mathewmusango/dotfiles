@@ -25,3 +25,16 @@ pubring.db
 pubring.kbx
 trustdb.gpg
 openpgp-revocs.d/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.venv/
+venv/
+build/
+dist/
+*.whl

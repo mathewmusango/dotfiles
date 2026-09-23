@@ -7,7 +7,7 @@ or, where a module only documents a setup, just the README.
 ```text
 dotfiles/
   ├── .githooks/            # pre-commit hook -> local checks
-  ├── .github/              # checks.yml, CODEOWNERS, dependabot
+  ├── .github/              # checks.yml, codeql.yml, CODEOWNERS, dependabot
   ├── aws/                  # AWS CLI v2 via a pinned podman image
   ├── container/checks/     # podman compose — one service per check
   ├── fastfetch/            # fastfetch designs: 01-minimal, 02-tree
@@ -16,11 +16,13 @@ dotfiles/
   ├── nerd-font/            # MesloLGS NF glyph font (install notes)
   ├── podman/               # rootless containers (install notes)
   ├── reflector/            # Arch mirrorlist configs + daily timer override
-  ├── rulesets/             # main.json — a record of the live branch ruleset
+  ├── rulesets/             # main.json + its record — the live branch ruleset
   ├── scripts/checks/       # local.sh driver + jsonc.py parser
   ├── ssh/                  # SSH keys, host pinning and agent (docs only)
   ├── yay/                  # AUR helper (install notes)
   ├── zsh(ohmyzsh)/         # .zshrc + .p10k.zsh
+  ├── CODE_OF_CONDUCT.md
+  ├── CONTRIBUTING.md
   ├── LICENSE
   ├── README.md
   └── SECURITY.md
@@ -41,6 +43,9 @@ dotfiles/
 | [`yay/`](yay/README.md) | — install notes only | — |
 | [`zsh(ohmyzsh)/`](zsh(ohmyzsh)/README.md) | `~/.zshrc`, `~/.p10k.zsh` (overwrites) | `./install.sh` |
 
+> [!WARNING]
+> `gpg/` and `zsh(ohmyzsh)/` install over files that already exist at their destination.
+
 The `02-tree` design and the p10k prompt need a Nerd Font — see [`nerd-font/`](nerd-font/README.md).
 
 ## Repository docs
@@ -49,8 +54,12 @@ Every module's README is linked in the table above. The rest of the documentatio
 
 | Doc | Covers |
 | --- | --- |
+| [`.github/`](.github/README.md) | the repository configuration — Dependabot, CodeQL, CODEOWNERS — and where each security surface acts |
+| [`.github/workflows/`](.github/workflows/README.md) | every workflow — its triggers, the checks it reports, and the local parity stack |
+| [`rulesets/`](rulesets/README.md) | the branch ruleset, and the record beside it |
 | [`container/checks/`](container/checks/README.md) | the compose services behind the checks |
 | [`scripts/checks/`](scripts/checks/README.md) | the check driver and the pre-commit hook — run the surfaces, or the same tools locally |
+| [`CONTRIBUTING.md`](CONTRIBUTING.md) · [`CODE_OF_CONDUCT.md`](CODE_OF_CONDUCT.md) | who changes this, and the standard for any interaction |
 
 ## Setup
 
