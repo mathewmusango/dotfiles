@@ -1,5 +1,7 @@
 # .github
 
+Named `INDEX.md`, not `README.md`, on purpose: GitHub renders a `.github/README.md` as the repository's landing page, ahead of the root `README.md`, so a config index under that name silently replaces the repository's front page.
+
 | File | What it is |
 | --- | --- |
 | [`CODEOWNERS`](CODEOWNERS) | `* @mathewmusango` — one line, no exceptions |
