@@ -1,25 +1,3 @@
-# Local (stage-1) checks — one service per check, mirroring the checks/
-# reusable workflows EXACTLY (same commands, purpose-built tool images).
-# Portable: no host tool installs — dotfiles' checks run anywhere podman does.
-# Mounts the REPO ROOT at /repo (this file sits two levels below the root).
-#
-# Preferred entry point — scripts/checks/local.sh (drives these services,
-# diff-gated by default, --full for a whole-repo pass, per-surface selection):
-#   scripts/checks/local.sh          # all surfaces, changed files only
-#   scripts/checks/local.sh --full   # all surfaces, whole repo
-#
-# Raw compose loop (same thing, no driver):
-#   podman-compose -f container/checks/compose.yml run --rm <service>
-# Pre-commit hook runs scripts/checks/local.sh (compose, diff-gated).
-# The GitHub workflows remain the authoritative gate (stage 2). All scans are
-# extension-wide across the whole repo (.git excluded) so NEW files in new
-# locations are never missed. First run pulls the tool images (network).
-#
-# Compose gotchas handled here:
-#   - "$f" must be written "$$f" — compose interpolates $VAR from the host env
-#     at parse time, which emptied loop variables and silently skipped every
-#     file. Image ENTRYPOINTs differ per tool: actionlint's image runs the tool
-#     directly (args only), the alpine images need an explicit sh -c.
 name: checks
 services:
   jsonc:

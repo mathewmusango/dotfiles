@@ -9,7 +9,7 @@ dotfiles/
   ├── .githooks/            # pre-commit hook -> local checks
   ├── .github/              # checks.yml, codeql.yml, CODEOWNERS, dependabot
   ├── aws/                  # AWS CLI v2 via a pinned podman image
-  ├── container/checks/     # podman compose — one service per check
+  ├── containers/checks/    # podman compose — one service per check
   ├── fastfetch/            # fastfetch designs: 01-minimal, 02-tree
   ├── git/                  # git itself (install notes)
   ├── gpg/                  # GnuPG agent config: common.conf, gpg-agent.conf
@@ -57,7 +57,7 @@ Every module's README is linked in the table above. The rest of the documentatio
 | [`.github/`](.github/INDEX.md) | the repository configuration — Dependabot, CodeQL, CODEOWNERS — and where each security surface acts |
 | [`.github/workflows/`](.github/workflows/README.md) | every workflow — its triggers, the checks it reports, and the local parity stack |
 | [`rulesets/`](rulesets/README.md) | the branch ruleset, and the record beside it |
-| [`container/checks/`](container/checks/README.md) | the compose services behind the checks |
+| [`containers/checks/`](containers/checks/README.md) | the compose services behind the checks |
 | [`scripts/checks/`](scripts/checks/README.md) | the check driver and the pre-commit hook — run the surfaces, or the same tools locally |
 | [`CONTRIBUTING.md`](CONTRIBUTING.md) · [`CODE_OF_CONDUCT.md`](CODE_OF_CONDUCT.md) | who changes this, and the standard for any interaction |
 

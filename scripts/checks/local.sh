@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # One entry point for the local (stage-1) checks — a thin driver over the
-# container/checks/compose.yml services. Portable: no host tool installs (the
+# containers/checks/compose.yml services. Portable: no host tool installs (the
 # images mirror the CI tools exactly). Default: run every surface whose files
 # changed (diff-gated, mirroring the CI checks skip-model). --full runs all
 # surfaces unconditionally (use for a first run / fresh clone).
@@ -11,7 +11,7 @@
 #   scripts/checks/local.sh --full --verbose   # + list the files each check scans
 #   scripts/checks/local.sh shell jsonc        # selected surfaces, changed only
 #
-# Surface names match the container/checks/compose.yml services:
+# Surface names match the containers/checks/compose.yml services:
 #   jsonc · shell · yaml-actionlint · yaml-syntax
 #
 # Pre-commit hook (.githooks/pre-commit) execs this script in diff mode, so
@@ -60,6 +60,7 @@ changed_files() {
   fi
   git diff --name-only --diff-filter=ACM
   git diff --cached --name-only --diff-filter=ACM
+  git ls-files --others --exclude-standard
 }
 
 if [ "$MODE" = "diff" ]; then
@@ -113,7 +114,7 @@ for svc in $SURFACES; do
   if [ "$VERBOSE" -eq 1 ]; then
     surface_files "$svc" | sed 's#^#    #'
   fi
-  if podman-compose -f container/checks/compose.yml run --rm "$svc"; then
+  if podman-compose -f containers/checks/compose.yml run --rm "$svc"; then
     printf '%s✅ %s (%s) passed%s\n' "$GREEN" "$svc" "$reason" "$NC"
   else
     printf '%s❌ %s (%s) failed%s\n' "$RED" "$svc" "$reason" "$NC"

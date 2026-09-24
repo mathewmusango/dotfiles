@@ -6,8 +6,8 @@ The [AWS CLI](https://aws.amazon.com/cli/) v2, run from a pinned container image
 
 ## Files
 
-- `aws` — the wrapper: `podman run` against the pinned image, defaulting to a read-only profile
-- `install.sh` — copies the wrapper to `~/.local/bin/aws` and pulls the image
+- [`aws`](aws) — the wrapper: `podman run` against the pinned image, defaulting to a read-only profile
+- [`install.sh`](install.sh) — copies the wrapper to `~/.local/bin/aws` and pulls the image
 
 ## Setup
 

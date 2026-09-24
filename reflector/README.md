@@ -4,9 +4,9 @@
 
 ## Files
 
-- `override.conf` — timer override: clears the stock weekly schedule, runs reflector **daily**
-- `reflector.conf` — mirror filters: save to `/etc/pacman.d/mirrorlist`, HTTPS only, 5 latest, sort by rate
-- `install.sh` — copies both into `/etc` and enables the timer (root)
+- [`override.conf`](override.conf) — timer override: clears the stock weekly schedule, runs reflector **daily**
+- [`reflector.conf`](reflector.conf) — mirror filters: save to `/etc/pacman.d/mirrorlist`, HTTPS only, 5 latest, sort by rate
+- [`install.sh`](install.sh) — copies both into `/etc` and enables the timer (root)
 
 ## Setup
 

@@ -1,4 +1,4 @@
-# container/checks (compose services)
+# containers/checks (compose services)
 
 One compose service per check surface, each pinned to a purpose-built tool image and running the **exact command** its CI counterpart runs. The point is parity: a green container here means the same thing as a green CI job.
 
@@ -11,7 +11,7 @@ scripts/checks/local.sh shell        # diff-gated, the normal way
 Raw compose, for running one service by hand:
 
 ```sh
-podman-compose -f container/checks/compose.yml run --rm shell
+podman-compose -f containers/checks/compose.yml run --rm shell
 ```
 
 ## Services
@@ -25,7 +25,7 @@ podman-compose -f container/checks/compose.yml run --rm shell
 
 ## Notes
 
-- The repo root is mounted at `/repo` **read-only** — no check can modify the tree.
+- The repo root is mounted at `/repo` **read-only** — no check can modify the tree. The compose file sits two levels below the root, which is why its volumes are written `../..`.
 - Images carry mutable `latest` tags on purpose (they track whatever CI uses); the first run pulls them.
 - Entrypoints differ per image: `actionlint` runs the tool directly (args only), while the alpine images need an explicit `sh -c`.
 - Scans are extension-wide across the whole repo (`.git` pruned), so new files in new locations are never missed.
