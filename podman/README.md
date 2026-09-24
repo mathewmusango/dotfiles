@@ -2,7 +2,7 @@
 
 [`Podman`](https://podman.io/) — a daemonless container engine: the same images and roughly the same CLI as Docker, but rootless by default and with no background service.
 
-> **Why podman?** Containers run as the logged-in user, with no root daemon behind them — so a container cannot quietly gain root on the host. Two things here depend on it: the [`aws/`](../aws/README.md) module runs the AWS CLI as a container, and the repo's own checks run as compose services driven by `podman-compose` — see [`container/checks/`](../container/checks/README.md), called by [`scripts/checks/`](../scripts/checks/README.md).
+> **Why podman?** Containers run as the logged-in user, with no root daemon behind them — so a container cannot quietly gain root on the host. Two things here depend on it: the [`aws/`](../aws/README.md) module runs the AWS CLI as a container, and the repo's own checks run as compose services driven by `podman-compose` — see [`containers/checks/`](../containers/checks/README.md), called by [`scripts/checks/`](../scripts/checks/README.md).
 
 ## Install
 

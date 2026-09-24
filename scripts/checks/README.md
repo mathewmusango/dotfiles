@@ -9,7 +9,7 @@ scripts/checks/local.sh --full -v    # …and list the files each surface scans
 scripts/checks/local.sh shell jsonc  # selected surfaces only
 ```
 
-Diff-gated by default: changed files come from `origin/main...HEAD` plus the staged and unstaged working tree, and a surface with no matching files **skips** rather than runs — the same skip-model CI uses, so an irrelevant surface never blocks a commit. Each selected surface runs as a service from [`container/checks/`](../container/checks/README.md), where the images and commands are declared. The exit code is 0 only if every surface that ran passed.
+Diff-gated by default: changed files come from `origin/main...HEAD` plus the staged and unstaged working tree, and a surface with no matching files **skips** rather than runs — the same skip-model CI uses, so an irrelevant surface never blocks a commit. Each selected surface runs as a service from [`containers/checks/`](../../containers/checks/README.md), where the images and commands are declared. The exit code is 0 only if every surface that ran passed.
 
 ## Surfaces
 

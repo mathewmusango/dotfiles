@@ -1,11 +1,9 @@
 # .github
 
-Named `INDEX.md`, not `README.md`, on purpose: GitHub renders a `.github/README.md` as the repository's landing page, ahead of the root `README.md`, so a config index under that name silently replaces the repository's front page.
-
 | File | What it is |
 | --- | --- |
 | [`CODEOWNERS`](CODEOWNERS) | `* @mathewmusango` — one line, no exceptions |
-| [`dependabot.yml`](dependabot.yml) | the `github-actions` default, and nothing else — no package manifest here means no ecosystem entry |
+| [`dependabot.yml`](dependabot.yml) | the `github-actions` default, and nothing else — no package manifest here means no ecosystem entry. The pins carry a trailing `# v<tag>`, which is the only thing Dependabot can version-map: an action pinned to a bare SHA cannot be bumped |
 | [`workflows/checks.yml`](workflows/checks.yml) | shared checks, one caller job per surface |
 | [`workflows/codeql.yml`](workflows/codeql.yml) | CodeQL for `actions` and `python` |
 

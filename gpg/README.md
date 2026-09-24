@@ -6,9 +6,9 @@ secret key stays in `~/.gnupg/private-keys-v1.d/` and the revocation certificate
 
 ## Files
 
-- `common.conf` — keyboxd backend (GnuPG 2.4): public keys in `public-keys.d/pubring.db`, no `pubring.kbx`
-- `gpg-agent.conf` — pinentry + caching
-- `install.sh` — copies both into `~/.gnupg` at mode `600`, backing up any file it would replace, then restarts the agent
+- [`common.conf`](common.conf) — keyboxd backend (GnuPG 2.4): public keys in `public-keys.d/pubring.db`, no `pubring.kbx`
+- [`gpg-agent.conf`](gpg-agent.conf) — pinentry + caching
+- [`install.sh`](install.sh) — copies both into `~/.gnupg` at mode `600`, backing up any file it would replace, then restarts the agent
 
 > [!WARNING]
 > `pinentry-timeout` in `gpg-agent.conf` is load-bearing: the ~60 s default expires mid-dialog, and key generation then fails with `Timeout`.
