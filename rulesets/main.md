@@ -9,8 +9,8 @@
 | Enforcement | `active` |
 | Merge methods | `squash` only |
 | Approvals | 1 · stale reviews dismissed on push · review threads resolved · an extra approval for unattributed changes |
-| Required checks | the seven contexts below, strict |
 | Bypass actors | none |
+| Required checks | the seven below, strict |
 | Also | `creation` · `deletion` · `non_fast_forward` · `required_signatures` · `code_scanning` (`high_or_higher`, analysis `errors`) |
 
 ## The required contexts
@@ -35,7 +35,3 @@ gh api repos/mathewmusango/dotfiles/rulesets
 # they are read-only, and the id lives in the URL.
 gh api --method PUT repos/mathewmusango/dotfiles/rulesets/23519428 --input rulesets/main.json
 ```
-
-**Verified.** Read back with `gh api repos/mathewmusango/dotfiles/rulesets` on 2026-09-23, and again on 2026-09-25: two rulesets now — this one, and [`branches: all`](all.md) for the branch-name gate — with no bypass actors. A context joins the required set only after a run has reported it, so the set holds what has actually run. **Corrected 2026-09-25:** live had drifted to **eight** contexts, carrying a `policies / branch` that this record never listed — a `create:`-only context, which can never be satisfied on a branch that is pushed to again, and with no bypass it would have hung the second push to any open pull request. The `PUT` below removed it, so live now matches this record.
-
-**Change flow.** Edit the JSON (export format) → apply it → update this record in the same pull request.
