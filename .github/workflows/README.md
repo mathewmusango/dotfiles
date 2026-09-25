@@ -20,6 +20,7 @@
 | `shell` | `checks-shell.yml` | `shell / shellcheck` |
 | `yaml` | `checks-yaml.yml` | `yaml / syntax` · `yaml / actionlint` |
 | `secrets` | `security-gitleaks.yml` | `secrets / gitleaks` |
+| `gitguardian` | `security-gitguardian.yml` | `gitguardian / gitguardian` — needs the `GITGUARDIAN_API_KEY` secret; **not** a required check |
 | `deps` | `security-deps.yml` | `deps / dependency-review` — pull requests only |
 
 ## `branch-policy.yml`

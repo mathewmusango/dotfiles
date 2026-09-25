@@ -17,6 +17,7 @@ The workflows are documented beside them: [`workflows/`](workflows/README.md).
 | Push protection | `git push`, before the pull request exists | **Yes** — the push is refused |
 | Native secret scanning | the whole repository, every branch | No — an alert in the Security tab |
 | `secrets / gitleaks` | CI, on the pull request — a required context | **Yes** |
+| `gitguardian / gitguardian` | CI, on the pull request — its own caller job and the `GITGUARDIAN_API_KEY` secret | No — it reports; it is not a required context |
 | `deps / dependency-review` | CI, on the pull-request diff — a required context | **Yes** |
 | `Analyze (…)` + the `code_scanning` rule | the pull request's analysis, and the `main`/weekly baseline | **Yes** — on alerts at `high_or_higher` |
 | Dependabot alerts | the dependency graph, from the default branch | No — it answers with a patch pull request |
