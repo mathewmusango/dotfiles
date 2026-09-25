@@ -30,7 +30,6 @@
 | `secrets` | `security-gitleaks.yml` | `secrets / gitleaks` |
 | `gitguardian` | `security-gitguardian.yml` | `gitguardian / gitguardian` — needs the `GITGUARDIAN_API_KEY` secret; **not** a required check |
 | `deps` | `security-deps.yml` | `deps / dependency-review` — pull requests only |
-| `terraform` | `security-terraform.yml` | `terraform / security` — Checkov, currently informational |
 
 ## `branch-policy.yml`
 
