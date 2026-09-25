@@ -7,7 +7,6 @@
 | [`workflows/checks.yml`](workflows/checks.yml) | shared checks, one caller job per surface |
 | [`workflows/security.yml`](workflows/security.yml) | the secret scanners — `secrets`, `gitguardian`, `deps` — split from `checks.yml` |
 | [`workflows/codeql.yml`](workflows/codeql.yml) | CodeQL for `actions` and `python` |
-| [`workflows/branch-policy.yml`](workflows/branch-policy.yml) | the branch-name policy, reported from a `create:` trigger as `policies / branch` |
 
 The workflows are documented beside them: [`workflows/`](workflows/README.md).
 
@@ -29,7 +28,7 @@ Set by hand; a clone or a pull carries none of them.
 
 | Setting | State |
 | --- | --- |
-| Rulesets | **applied** — `branch: main`, live; recorded in [`../rulesets/`](../rulesets/README.md) |
+| Rulesets | **applied** — `branch: main` and `branches: all` (the branch-name gate), both live; recorded in [`../rulesets/`](../rulesets/README.md) |
 | Labels | `dependencies` · `github-actions` · `ci` — the two `dependabot.yml` names exist |
 | Push protection | on |
 | Secret scanning | on |

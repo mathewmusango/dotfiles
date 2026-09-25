@@ -76,9 +76,6 @@
       "type": "creation"
     },
     {
-      "type": "required_signatures"
-    },
-    {
       "type": "code_scanning",
       "parameters": {
         "code_scanning_tools": [
@@ -89,6 +86,9 @@
           }
         ]
       }
+    },
+    {
+      "type": "required_signatures"
     }
   ],
   "bypass_actors": []
