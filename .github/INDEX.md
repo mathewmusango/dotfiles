@@ -6,6 +6,7 @@
 | [`dependabot.yml`](dependabot.yml) | the `github-actions` default, and nothing else — no package manifest here means no ecosystem entry. The pins carry a trailing `# v<tag>`, which is the only thing Dependabot can version-map: an action pinned to a bare SHA cannot be bumped |
 | [`workflows/checks.yml`](workflows/checks.yml) | shared checks, one caller job per surface |
 | [`workflows/codeql.yml`](workflows/codeql.yml) | CodeQL for `actions` and `python` |
+| [`workflows/branch-policy.yml`](workflows/branch-policy.yml) | the branch-name policy, reported from a `create:` trigger as `policies / branch` |
 
 The workflows are documented beside them: [`workflows/`](workflows/README.md).
 

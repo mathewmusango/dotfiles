@@ -19,8 +19,13 @@
 | `python` | `checks-python.yml` | `python / ruff` |
 | `shell` | `checks-shell.yml` | `shell / shellcheck` |
 | `yaml` | `checks-yaml.yml` | `yaml / syntax` · `yaml / actionlint` |
-| `secrets` | `security-secrets.yml` | `secrets / gitleaks` |
+| `secrets` | `security-gitleaks.yml` | `secrets / gitleaks` |
 | `deps` | `security-deps.yml` | `deps / dependency-review` — pull requests only |
+
+## `branch-policy.yml`
+
+- **Trigger:** `create:` only. It holds no logic: one job, `policies`, calls the shared `branch-policy.yml` leaf in `mathewmusango/my-workflows`, at the same SHA-pin and tag comment as `checks.yml`. It reports as `policies / branch` and is **not** a required check.
+- **It reports, it does not block.** A `create:`-triggered job fires *after* the ref exists, so the name is already made; `main` and `dependabot/*` pass, and anything else takes a typed prefix — `feature/`, `fix/`, `docs/`, `ci/`, `infra/`, `security/`, `governance/`, `deps/`, `content/` (not `chore/`, not `feat/`).
 
 ## `codeql.yml`
 
