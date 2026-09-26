@@ -12,7 +12,7 @@
 #   scripts/checks/local.sh shell jsonc        # selected surfaces, changed only
 #
 # Surface names match the containers/checks/compose.yml services:
-#   jsonc · shell · yaml · yaml-syntax
+#   jsonc · shell · python · yaml · yaml-syntax
 #
 # Pre-commit hook (.githooks/pre-commit) execs this script in diff mode, so
 # every commit checks all changed surfaces through compose. Install:
@@ -46,7 +46,7 @@ for arg in "$@"; do
   esac
 done
 
-ALL="jsonc shell yaml yaml-syntax"
+ALL="jsonc shell python yaml yaml-syntax"
 if [ -z "$SURFACES" ]; then
   SURFACES="$ALL"
 fi
@@ -73,6 +73,7 @@ surface_glob() {
   case "$1" in
     jsonc)            printf '%s' '\.jsonc$|scripts/checks/jsonc\.py$' ;;
     shell)            printf '%s' '\.sh$|(^|/)\.githooks/' ;;
+    python)           printf '%s' '\.py$' ;;
     yaml|yaml-syntax) printf '%s' '\.ya?ml$' ;;
   esac
 }
@@ -82,6 +83,7 @@ surface_touched() {
   case "$1" in
     jsonc)            grep -qE '\.jsonc$|scripts/checks/jsonc\.py$' || return 1 ;;
     shell)            grep -qE '\.sh$|(^|/)\.githooks/' || return 1 ;;
+    python)           grep -q '\.py$' || return 1 ;;
     yaml|yaml-syntax) grep -qE '\.ya?ml$' || return 1 ;;
   esac
 }
