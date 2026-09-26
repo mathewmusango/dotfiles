@@ -17,6 +17,7 @@ Diff-gated by default: changed files come from `origin/main...HEAD` plus the sta
 | --- | --- | --- |
 | `jsonc` | `*.jsonc` parses, via [`jsonc.py`](jsonc.py) — plus that every `fastfetch/*/` design has both its `config.jsonc` and `screenshot.png` | `python3 scripts/checks/jsonc.py` |
 | `shell` | `shellcheck -S warning` across `*.sh` and `.githooks/` | `shellcheck -S warning <files>` |
+| `python` | `ruff check .` across `*.py` | `ruff check .` |
 | `yaml` | `actionlint` across `.github/workflows/` | `actionlint` |
 | `yaml-syntax` | every `*.yml` / `*.yaml` parses | `ruby -ryaml -e 'YAML.load_file(ARGV[0])' <file>` |
 
