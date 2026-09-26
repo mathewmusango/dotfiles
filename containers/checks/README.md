@@ -20,7 +20,7 @@ podman-compose -f containers/checks/compose.yml run --rm shell
 | --- | --- | --- |
 | `jsonc` | `python:alpine` | `scripts/checks/jsonc.py`, plus the fastfetch design-completeness check |
 | `shell` | `koalaman/shellcheck-alpine` | `shellcheck -S warning` over `*.sh` + `.githooks/` |
-| `yaml-actionlint` | `rhysd/actionlint` | `actionlint` over the workflows |
+| `yaml` | `rhysd/actionlint` | `actionlint` over the workflows |
 | `yaml-syntax` | `ruby:alpine` | `ruby -ryaml` over every `*.yml` / `*.yaml` |
 
 ## Notes
