@@ -45,7 +45,8 @@ def main() -> int:
     ok = True
     for f in sorted(glob.glob("**/config.jsonc", recursive=True)):
         try:
-            raw = open(f, encoding="utf-8").read()
+            with open(f, encoding="utf-8") as fh:
+                raw = fh.read()
             cleaned = re.sub(r",(\s*[}\]])", r"\1", strip_jsonc(raw))
             json.loads(cleaned)
             print(f"ok: {f}")
