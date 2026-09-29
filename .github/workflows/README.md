@@ -23,13 +23,12 @@
 
 ## `security.yml`
 
-- The same shape and the same trigger as `checks.yml` — one caller job per reusable — split by *concern*: these are the security tools, not the linting and validity surfaces. It also keeps the two jobs that read a secret and reach a third party visibly separate, and it is the part the local stack deliberately does **not** mirror.
+- The same shape and the same trigger as `checks.yml` — one caller job per reusable — split by *concern*: these are the security tools, not the linting and validity surfaces. It is the part the local stack deliberately does **not** mirror.
 - **Moving a job between this file and `checks.yml` does not rename it:** the reported name comes from the caller job key, so the split needed no ruleset edit.
 
 | Caller job | Reusable workflow | Reported check name |
 | --- | --- | --- |
 | `secrets` | `security-gitleaks.yml` | `secrets / gitleaks` |
-| `gitguardian` | `security-gitguardian.yml` | `gitguardian / gitguardian` — needs the `GITGUARDIAN_API_KEY` secret; **not** a required check |
 | `deps` | `security-deps.yml` | `deps / dependency-review` — pull requests only |
 
 ## `codeql.yml`
