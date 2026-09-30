@@ -54,8 +54,7 @@ Every module's README is linked in the table above. The rest of the documentatio
 
 | Doc | Covers |
 | --- | --- |
-| [`.github/`](.github/INDEX.md) | the repository configuration — Dependabot, CodeQL, CODEOWNERS — and where each security surface acts |
-| [`.github/workflows/`](.github/workflows/README.md) | every workflow — its triggers, the checks it reports, and the local parity stack |
+| [`.github/`](.github/INDEX.md) | the repository configuration — Dependabot, CodeQL, CODEOWNERS |
 | [`rulesets/`](rulesets/README.md) | the branch ruleset, and the record beside it |
 | [`containers/checks/`](containers/checks/README.md) | the compose services behind the checks |
 | [`scripts/checks/`](scripts/checks/README.md) | the check driver and the pre-commit hook — run the surfaces, or the same tools locally |
