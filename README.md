@@ -9,7 +9,7 @@ in `/etc`.
 
 ## Screenshot
 
-![Arch Linux desktop running KDE Plasma](assets/screenshot.png)
+![Arch Linux desktop running KDE Plasma](assets/screenshot.jpg)
 
 ```text
 my-dotfiles/
