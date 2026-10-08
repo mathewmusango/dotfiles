@@ -1,11 +1,18 @@
-# dotfiles
+# my-dotfiles
 
-**Personal configs, installed by copy — never by symlink.** Each app is a module:
-config in the repo, an install script that copies it into place, and its own README —
-or, where a module only documents a setup, just the README.
+**Personal Arch Linux configs.** Each app is a module: config in the repo, an install
+script that copies it into place, and its own README — or, where a module only documents
+a setup, just the README.
+
+Built and used on Arch Linux — every Setup step uses `yay`, and root-owned configs land
+in `/etc`.
+
+## Screenshot
+
+![Arch Linux desktop running KDE Plasma](assets/screenshot.png)
 
 ```text
-dotfiles/
+my-dotfiles/
   ├── .githooks/            # pre-commit hook -> local checks
   ├── .github/              # checks.yml, codeql.yml, CODEOWNERS, dependabot
   ├── aws/                  # AWS CLI v2 via a pinned podman image
@@ -67,7 +74,7 @@ Every module's README is linked in the table above. The rest of the documentatio
 ## Setup
 
 ```sh
-gh repo clone mathewmusango/dotfiles && cd dotfiles
+gh repo clone mathewmusango/my-dotfiles && cd my-dotfiles
 ```
 
 Then follow the module README you need.
