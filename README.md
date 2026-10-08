@@ -14,10 +14,12 @@ dotfiles/
   ├── git/                  # git itself (install notes)
   ├── gpg/                  # GnuPG agent config: common.conf, gpg-agent.conf
   ├── nerd-font/            # MesloLGS NF glyph font (install notes)
+  ├── nvidia/               # Optimus power config: runtime PM + udev rules
   ├── podman/               # rootless containers (install notes)
   ├── reflector/            # Arch mirrorlist configs + daily timer override
   ├── rulesets/             # main.json + its record — the live branch ruleset
   ├── scripts/checks/       # local.sh driver + jsonc.py parser
+  ├── sddm/                 # login greeter on Wayland (no root Xorg)
   ├── ssh/                  # SSH keys, host pinning and agent (docs only)
   ├── yay/                  # AUR helper (install notes)
   ├── zsh(ohmyzsh)/         # .zshrc + .p10k.zsh
@@ -37,8 +39,10 @@ dotfiles/
 | [`git/`](git/README.md) | — install notes only | — |
 | [`gpg/`](gpg/README.md) | `~/.gnupg/{common,gpg-agent}.conf` (overwrites) | `./install.sh` |
 | [`nerd-font/`](nerd-font/README.md) | — install notes only | — |
+| [`nvidia/`](nvidia/README.md) | `/etc/modprobe.d/nvidia-pm.conf` + `/etc/udev/rules.d/80-nvidia-pm.rules` | `sudo ./install.sh` |
 | [`podman/`](podman/README.md) | — install notes only | — |
 | [`reflector/`](reflector/README.md) | `/etc/xdg/reflector/` + `reflector.timer` override | `sudo ./install.sh` |
+| [`sddm/`](sddm/README.md) | `/etc/sddm.conf.d/10-wayland.conf` | `sudo ./install.sh` |
 | [`ssh/`](ssh/README.md) | — SSH keys, host pinning, agent (nothing installed) | — |
 | [`yay/`](yay/README.md) | — install notes only | — |
 | [`zsh(ohmyzsh)/`](zsh(ohmyzsh)/README.md) | `~/.zshrc`, `~/.p10k.zsh` (overwrites) | `./install.sh` |
